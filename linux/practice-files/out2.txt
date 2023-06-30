@@ -1,0 +1,2 @@
+Hello again. This is showing how to redirect STDOUT data stream to a text file. We enter in text using STDIN and our keyboard and this creates a data stream. That stream will then be redirected to a text file. This is STDOUT redirection.
+Hello, my name is Tanner Barcelos!
