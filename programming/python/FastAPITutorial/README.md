@@ -1,25 +1,28 @@
-# Intro to FastAPI
+## Intro to FastAPI
 
-## Getting Started
+### Getting Started
 
-> This project uses virtual environments with Anaconda. If you do not have Anaconda installed, you can download it [here](https://www.anaconda.com/products/individual)
+**Note**: This project uses virtual environments with conda. If you do not have conda installed, you can [download it here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
-1. To install all the dependencies and create a virtual environment, run the following within your cwd ([read more here](https://docs.conda.io/projects/conda/en/latest/commands/create.html))
-   `conda create --prefix ./venv --file requirements.txt`
+**Create environment and install dependencies**
 
-   > --prefix ./venv will create a virtual environment in the current working directory called venv and be prefixed with the path to the venv. This is useful if you want to keep your virtual environments in a specific directory. However, this might cause your env path to be very
-   > large. To configure conda to remove the prefix path, run the following command
-   > `conda config --set env_prompt '({name})'`
+`conda config --set env_prompt '({name})'`
+`conda create --prefix ./venv --file requirements.txt`
 
-2. Activate the environment with the following
-   `conda activate ./venv`
+[learn more here](https://docs.conda.io/projects/conda/en/latest/commands/create.html)
 
-3. Run the Server
+<br />
 
-   > You can run the basic example or the advanced example. Both do the same thing, but the advanced example has more code and comments to help you understand what is going on for a more complex project.
+**Activate the environment with the following**
+`conda activate ./venv`
 
-- Basic Example
-  `Make run-basic-server`
+<br />
 
-- Advanced Example
-  `Make run-advanced-server`
+**Run the Server**
+
+|     Example      |          Command           |
+| :--------------: | :------------------------: |
+|  Basic Example   |  `Make run-basic-server`   |
+| Advanced Example | `Make run-advanced-server` |
+
+> See sub-package README for more information on each example
