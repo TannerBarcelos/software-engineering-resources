@@ -1,0 +1,1 @@
+-- CREATE DATABASE talently; -- ran within the default connection and default db
