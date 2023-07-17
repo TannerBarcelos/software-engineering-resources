@@ -6,6 +6,10 @@ type FeedbackProps = {
 }
 
 function FeedbackList({ feedbackItems }: FeedbackProps) {
+    if (!feedbackItems.length) {
+        return <p>No feedback</p>
+    }
+
     return <div className="feedback-list">
         { feedbackItems.map((item) => <FeedbackItem item={ item } />) }
     </div>

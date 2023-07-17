@@ -1,4 +1,4 @@
-import { feedbackItem } from '../../components/Feedback/types'
+import { feedbackItem } from '../../components/ui/Feedback/types'
 
 export const feedbackData: feedbackItem[] = [
   {

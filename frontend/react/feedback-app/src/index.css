@@ -41,7 +41,8 @@ header {
   position: relative;
 }
 
-.card.reverse {
+/* Inverts the color scheme to dark mode coloring when color and inverted classes are both present on an element */
+.card.invert {
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
 }

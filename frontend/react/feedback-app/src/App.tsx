@@ -1,8 +1,8 @@
 import { useState, Fragment } from 'react'
 import { feedbackData } from './lib/data/feedbackData'
-import FeedbackList from './components/Feedback/FeedbackList'
-import Header from './components/Header/Header'
-import { feedbackItem } from './components/Feedback/types'
+import FeedbackList from './components/ui/Feedback/FeedbackList'
+import Header from './components/ui/Header/Header'
+import { feedbackItem } from './components/ui/Feedback/types'
 
 function App() {
   const [feedbackItems, setFeedbackItems] = useState<Array<feedbackItem>>(feedbackData)
