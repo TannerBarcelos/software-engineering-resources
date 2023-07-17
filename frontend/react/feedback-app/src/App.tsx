@@ -1,6 +1,15 @@
+import Feedback from './components/Feedback/Feedback'
+import Header from './components/Header/Header'
+
 function App() {
+  const appName = 'Feedback App'
   return (
-    <div>App</div>
+    <>
+      <Header appName={ appName } />
+      <div className="container">
+        <Feedback />
+      </div>
+    </>
   )
 }
 
