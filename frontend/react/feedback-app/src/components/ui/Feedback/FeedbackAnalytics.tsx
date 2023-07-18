@@ -23,12 +23,11 @@ function FeedbackAnalytics({ feedbackItems }: FeedbackAnalyticsProps) {
     return (
         <Fragment>
             <div className='feedback-stats'>
+                <h3>Analytics</h3>
                 <h4>{ totalAmtOfRatings } ratings</h4>
                 <h4>{ averageRating } avg rating</h4>
                 <h4>{ totalPositiveFeedback } positive responses</h4>
                 <h4>{ totalNegativeFeedback } negative responses</h4>
-            </div>
-            <div className='feedback-stats'>
                 <h4>{ averageUpVotes } average upvotes</h4>
                 <h4>{ averageDownVotes } average downvotes</h4>
             </div>
