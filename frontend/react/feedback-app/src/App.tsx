@@ -6,11 +6,22 @@ import { feedbackItem } from './components/ui/Feedback/types'
 
 function App() {
   const [feedbackItems, setFeedbackItems] = useState<Array<feedbackItem>>(feedbackData)
+
+  const handleDeleteItem = (id: number) => {
+    // "remove" the item from the array
+    const newFeedbackItems = feedbackItems.filter((item) => item.id !== id)
+
+    // update the state
+    setFeedbackItems(items => {
+      return items.filter((item) => item.id !== id)
+    })
+  }
+
   return (
     <Fragment>
       <Header />
       <div className="container">
-        <FeedbackList feedbackItems={ feedbackItems } />
+        <FeedbackList feedbackItems={ feedbackItems } handleDeleteItem={ handleDeleteItem } />
       </div>
     </Fragment>
   )
