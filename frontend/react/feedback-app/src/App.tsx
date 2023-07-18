@@ -2,6 +2,7 @@ import { useState, Fragment } from 'react'
 import { feedbackData } from './lib/data/feedbackData'
 import FeedbackList from './components/ui/Feedback/FeedbackList'
 import Header from './components/ui/Header/Header'
+import FeedbackAnalytics from './components/ui/Feedback/FeedbackAnalytics'
 import { feedbackItem } from './components/ui/Feedback/types'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <Fragment>
       <Header />
       <div className="container">
+        <FeedbackAnalytics feedbackItems={ feedbackItems } />
         <FeedbackList feedbackItems={ feedbackItems } handleDeleteItem={ handleDeleteItem } />
       </div>
     </Fragment>
