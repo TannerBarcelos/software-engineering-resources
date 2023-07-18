@@ -8,13 +8,11 @@ function App() {
   const [feedbackItems, setFeedbackItems] = useState<Array<feedbackItem>>(feedbackData)
 
   const handleDeleteItem = (id: number) => {
-    // "remove" the item from the array
-    const newFeedbackItems = feedbackItems.filter((item) => item.id !== id)
-
-    // update the state
-    setFeedbackItems(items => {
-      return items.filter((item) => item.id !== id)
-    })
+    if (window.confirm('Are you sure you want to delete this item?')) {
+      setFeedbackItems(items => {
+        return items.filter((item) => item.id !== id)
+      })
+    }
   }
 
   return (
