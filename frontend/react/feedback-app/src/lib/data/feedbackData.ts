@@ -28,4 +28,22 @@ export const feedbackData: feedbackItem[] = [
     downvotes: 3,
     rating: 10,
   },
+  {
+    id: 4,
+    title: 'Feedback 4',
+    description: 'This is the fourth feedback',
+    category: 'bug',
+    upvotes: 5,
+    downvotes: 1,
+    rating: 2,
+  },
+  {
+    id: 5,
+    title: 'Feedback 5',
+    description: 'This is the fifth feedback',
+    category: 'feature',
+    upvotes: 3,
+    downvotes: 2,
+    rating: 6,
+  },
 ]
