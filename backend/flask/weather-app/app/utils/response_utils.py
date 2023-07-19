@@ -1,4 +1,4 @@
-def capitalize_string(string):
+def capitalize_string(string) -> str:
     """Capitalize the first letter of a string.
 
     Args:
@@ -9,7 +9,7 @@ def capitalize_string(string):
     """
     return string.capitalize()
 
-def format_float(num, precision=1):
+def format_float(num, precision=1) -> str:
     """Format a float to one decimal place.
 
     Args:
