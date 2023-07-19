@@ -1,11 +1,14 @@
 from flask import Flask, request, render_template
-import os
-from flask import request
 from lib.weather import get_current_weather
 from utils.response_utils import capitalize_string, format_float
 from waitress import serve
+from dotenv import load_dotenv
+import os
 
-# Flask Server
+# Load environment variables
+load_dotenv()
+
+# Flask Server Instance
 app = Flask(__name__)
 
 @app.route('/')
@@ -15,10 +18,9 @@ def index():
 
 @app.route('/weather')
 def get_weather():
+    
     city = request.args.get('city').strip()
 
-    # If user does not enter a city, intercept the empty string and use San Jose as the default
-    # there is a `required` field on the input element in the HTML, but this is a backup
     if not city:
         city = 'San Jose'
 
