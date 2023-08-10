@@ -1,10 +1,8 @@
 package utils
 
-import java.util
-
 case class ListBuilder[T](size: Int = 10) {
 
-  private val list = new util.ArrayList[T]()
+  private val list = new java.util.ArrayList[T]()
 
   def addItem(item: T): String = {
     if(list.size == size) {
