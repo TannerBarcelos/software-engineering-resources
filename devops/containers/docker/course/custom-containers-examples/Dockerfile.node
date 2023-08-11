@@ -1,0 +1,30 @@
+# This Dockerfile creates a custom, nodejs based image to be published to my docker hub
+# so I can use it for future projects. It is based on the official nodejs image, but adds 
+# some additional packages that I use frequently / custom npm config.
+
+ARG NODE_VERSION=lts-alpine3.18 
+
+FROM node:${NODE_VERSION}
+
+RUN apk update && apk upgrade && \
+    apk add --no-cache \ 
+    bash git openssh
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+# This image is intended to be used as a base image for other images using Node.js i.e an express app that is Dockerized
+
+# How to build this Dockerfile as an image
+# docker build -t tannermbarcelos/node -f Dockerfile.node .
+
+# Run the image as a container
+# docker run -it --name node tannermbarcelos/node
+
+# OR
+# We also can run the image as a container and run a shell or node directly
+# docker run -it --rm --name node tannermbarcelos/node /bin/sh 
+# docker run -it --rm --name node tannermbarcelos/node node 
+
+# Then later we can start the container and exec into it (this only works if --rm was not used above AND then container is running)
+# docker start tannermbarcelos/node
+# docker exec -it tannermbarcelos/node /bin/sh
