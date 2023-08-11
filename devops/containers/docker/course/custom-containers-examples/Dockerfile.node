@@ -20,11 +20,12 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 # Run the image as a container
 # docker run -it --name node tannermbarcelos/node
 
+# Then later we can start the container and exec into it (this only works if --rm was not used above AND then container is not running)
+# docker start tannermbarcelos/node
+# docker exec -it tannermbarcelos/node /bin/sh
+
 # OR
-# We also can run the image as a container and run a shell or node directly
+# Run the container and remove it immediately after it exits (this is useful for testing)
 # docker run -it --rm --name node tannermbarcelos/node /bin/sh 
 # docker run -it --rm --name node tannermbarcelos/node node 
 
-# Then later we can start the container and exec into it (this only works if --rm was not used above AND then container is running)
-# docker start tannermbarcelos/node
-# docker exec -it tannermbarcelos/node /bin/sh
