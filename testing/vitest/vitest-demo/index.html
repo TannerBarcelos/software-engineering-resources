@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,28 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src="/vite.svg" class="logo" alt="Vite logo" />
+        </a>
+        <a href="https://www.typescriptlang.org/" target="_blank">
+          <img
+            src="/typescript.svg"
+            class="logo vanilla"
+            alt="TypeScript logo"
+          />
+        </a>
+        <h1>Vite + Vanilla TypeScript Counter Demo</h1>
+        <!-- The current count -->
+        <h3 id="counter"></h3>
+        <!-- Elements to increment and decrement the count -->
+        <div class="card">
+          <button id="increment" type="button">Increment</button>
+          <button id="decrement" type="button">Decrement</button>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
