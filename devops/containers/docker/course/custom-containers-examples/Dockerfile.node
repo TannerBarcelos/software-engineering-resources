@@ -17,12 +17,12 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 # How to build this Dockerfile as an image
 # docker build -t tannermbarcelos/node -f Dockerfile.node .
 
-# Run the image as a container
+# Run the image as a container (and use Node.js REPL)
 # docker run -it --name node tannermbarcelos/node
 
 # Then later we can start the container and exec into it (this only works if --rm was not used above AND then container is not running)
-# docker start tannermbarcelos/node
-# docker exec -it tannermbarcelos/node /bin/sh
+# docker start node
+# docker exec -it node node # or docker exec -it node /bin/sh
 
 # OR
 # Run the container and remove it immediately after it exits (this is useful for testing)
