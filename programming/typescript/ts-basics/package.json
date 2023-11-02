@@ -1,0 +1,16 @@
+{
+  "name": "ts-basics",
+  "version": "1.0.0",
+  "description": "Learning TypeScript",
+  "main": "dist/app.js",
+  "scripts": {
+    "run": "lite-server -w dist",
+    "build": "tsc --outDir dist -w app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
