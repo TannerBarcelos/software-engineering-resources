@@ -12,8 +12,8 @@ function add(num1: number, num2: number) {
 }
 
 button!.addEventListener('click', function () {
-  const input1 = document.getElementById('num1') as HTMLInputElement
-  const input2 = document.getElementById('num2') as HTMLInputElement
+  const input1 = document.getElementById('num1')! as HTMLInputElement // ! tells typescript that we know this will never be null
+  const input2 = document.getElementById('num2')! as HTMLInputElement
   const result = add(+input1.value, +input2.value)
   console.log(result)
 })
