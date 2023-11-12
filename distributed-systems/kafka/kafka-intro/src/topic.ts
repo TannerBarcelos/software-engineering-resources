@@ -1,25 +1,14 @@
-import { Kafka, KafkaConfig } from 'kafkajs'
-import { config } from 'dotenv'
-
-config()
-
-function createKafkaInstance(clientId: string, brokers: string[]): Kafka {
-  const kafkaConfig: KafkaConfig = { brokers, clientId }
-  return new Kafka(kafkaConfig)
-}
-
-const brokers: string[] = [
-  `${process.env.HOST_IP!}:${process.env.BROKER_PORT!}`,
-]
+import createKafkaInstance from './lib/createInstance'
 
 async function createTopic(
+  clientId: string,
   topicName: string,
-  numPartitions: number = 2,
+  brokers: string[],
+  numPartitions: number = 1,
 ): Promise<void> {
   try {
-    const kafka = createKafkaInstance(process.env.CLIENT_ID!, brokers)
+    const kafka = createKafkaInstance(clientId, brokers)
     const admin = kafka.admin()
-    console.log(`Connecting to broker ${process.env.BROKER_URL!}`)
     await admin.connect()
 
     const { topics } = await admin.fetchTopicMetadata({
@@ -49,4 +38,4 @@ async function createTopic(
   }
 }
 
-createTopic(process.env.TOPIC_NAME!)
+export { createTopic }
