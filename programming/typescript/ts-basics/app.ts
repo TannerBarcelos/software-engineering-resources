@@ -45,7 +45,7 @@ enum Permission {
 type Perms = [Role, Permission]; // Perms can only be a tuple with two values, the first being a Role and the second being a Permission
 const permissions: Perms = [Role.ADMIN, Permission.READ];
 
-function printUser(user: User) {
+function printUser(user: User): void {
   console.log(
     `The users name is ${user.name} and their age is ${
       user.age
@@ -63,3 +63,63 @@ function printUser(user: User) {
 printUser(user);
 
 // console.log(Object.entries(user)) // [['name', 'Tanner'], ['age', 27], ['interests', ['Golf', 'Coding', 'Academia']]]
+
+// Any - any type. Use sparingly. Allows for dynamic types.
+let favoriteThing: any = "Golf";
+favoriteThing = 27;
+favoriteThing = true;
+favoriteThing = ["Golf", "Coding", "Academia"];
+favoriteThing = {
+  name: "Tanner",
+  age: 27,
+  interests: ["Golf", "Coding", "Academia"],
+};
+
+// Union Types - allow for multiple types to be used for a variable
+type Combinable = string | number; // this is known as a type alias (a way to give a name to a type) and is aliasing the union type of string and number to Combinable
+function combine(n: Combinable, m: Combinable): Combinable {
+  // Runtime type check to see if n or m is a string or number. Union types are useful for runtime type checks.
+  if (typeof n === "string" || typeof m === "string") {
+    // || covers or && covers and as known from discrete math
+    return n.toString() + m.toString();
+  }
+  return n + m;
+}
+
+console.log(combine("Tanner", "Barcelos"));
+console.log(combine(10, 20));
+console.log(combine("Tanner", 10));
+
+// Literal Types - allows for a specific value to be used for a variable
+type YesNo = "yes" | "no";
+let answer: YesNo = "yes";
+// answer = 'no' // error
+// answer = 'maybe' // error
+
+// Type Aliases - allows for a type to be given a name
+type NumOrString = number | string;
+type UserWithInterests = User & {interests: string[]}; // intersection type (a type that combines multiple types)
+
+const userWithInterests: UserWithInterests = {
+  name: "Hayden",
+  age: 26,
+  interests: [],
+};
+
+// Function Return Types and Void
+function add(n: number, m: number): number {
+  return n + m;
+}
+
+function printResult(n: number): void {
+  console.log(`Result: ${n}`);
+}
+
+printResult(add(10, 20));
+
+// Function Types
+let combineValues: (a: number, b: number) => number; // function type with two parameters of type number and a return type of number
+combineValues = add;
+// combineValues = printResult // error
+// combineValues = 5 // error
+console.log(combineValues(10, 20));
