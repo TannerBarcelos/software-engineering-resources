@@ -26,6 +26,25 @@ const user: User = {
   interests: ['Golf', 'Coding', 'Academia'],
 }
 
+// Enum - a way of giving more friendly names to sets of numeric values
+enum Role {
+  ADMIN, // 0
+  READ_ONLY, // 1
+  AUTHOR, // 2
+}
+
+enum Permission {
+  READ = 'READ',
+  WRITE = 'WRITE',
+  DELETE = 'DELETE',
+}
+
+// Why use enums? They are useful when you have a set of values that are closely related and need to be represented in a numeric way.
+
+// Tuple - fixed length array with fixed types. Tuples are immutable (cannot be changed..even though TypeScript allows it)
+type Perms = [Role, Permission] // Perms can only be a tuple with two values, the first being a Role and the second being a Permission
+const permissions: Perms = [Role.ADMIN, Permission.READ]
+
 function printUser(user: User) {
   console.log(
     `The users name is ${user.name} and their age is ${
