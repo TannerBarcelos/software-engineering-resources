@@ -1,30 +1,5 @@
-enum Operation {
-  Add = "add",
-  Subtract = "subtract",
-  Multiply = "multiply",
-  Divide = "divide",
-}
-
-type Calculator = (a: number, b: number) => number;
-
-// Factory function to create calculator
-// What is a factory function? https://www.youtube.com/watch?v=ImwrezYhw4w
-function CalculatorFactory(operation: Operation): Calculator {
-  return function (a: number, b: number) {
-    switch (operation) {
-      case Operation.Add:
-        return a + b;
-      case Operation.Subtract:
-        return a - b;
-      case Operation.Multiply:
-        return a * b;
-      case Operation.Divide:
-        return a / b;
-      default:
-        throw new Error(`Invalid operation: ${operation}`);
-    }
-  };
-}
+import CalculatorFactory from "./factory";
+import {Operation} from "./lib/definitions";
 
 const add = CalculatorFactory(Operation.Add);
 console.log(add(2, 3)); // Output: 5
