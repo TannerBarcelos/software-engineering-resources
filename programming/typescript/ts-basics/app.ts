@@ -123,3 +123,42 @@ combineValues = add;
 // combineValues = printResult // error
 // combineValues = 5 // error
 console.log(combineValues(10, 20));
+
+// Function Types and Callbacks
+type Callback = (n: number) => void;
+function addAndHandle(n: number, m: number, cb: Callback): void {
+  const result = n + m;
+  if (result > 100) {
+    cb(result + 2);
+  } else {
+    cb(result);
+  }
+}
+
+addAndHandle(10, 500, (result) => {
+  console.log(result * 2);
+});
+
+// Unknown Type
+
+let userInput: unknown;
+let userName2: string;
+
+userInput = 5;
+userInput = "Tanner";
+// userName2 = userInput // error
+if (typeof userInput === "string") {
+  userName2 = userInput;
+}
+
+// Never Type - a type that is never reached
+function generateError(message: string, code: number): never {
+  throw new Error(`${message} with code ${code}`);
+}
+
+try {
+  generateError("An error occurred", 500);
+} catch (error) {
+  console.error(error.message);
+  console.error(error);
+}
