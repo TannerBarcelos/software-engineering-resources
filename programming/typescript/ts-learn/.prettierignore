@@ -1,0 +1,11 @@
+# Ignore artifacts:
+build
+coverage
+lib
+node_modules
+
+# Ignore TypeScript definition files:
+*.d.ts
+
+# Ignore Git files:
+.gitignore
