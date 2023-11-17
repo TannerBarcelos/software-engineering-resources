@@ -5,6 +5,8 @@ This project is a representation of a folder structure, TypeScript configuration
 I have created this project as a starting point for my own projects and I am sharing it in case it is useful to others as
 well as to help me remember how to set up a project like this in the future.
 
+It is also being used for learning purposes as I am learning TypeScript and NodeJS / brushing up on my JavaScript skills.
+
 ## Folder structure
 
 The folder structure is as follows:
