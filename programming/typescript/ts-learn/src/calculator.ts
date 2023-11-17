@@ -3,16 +3,17 @@ import {Operation, Calculator} from "./lib/definitions";
 // Factory function to create calculator
 // What is a factory function? https://www.youtube.com/watch?v=ImwrezYhw4w
 export default function CalculatorFactory(operation: Operation): Calculator {
-  return function (a: number, b: number) {
+  // Return a function that takes a list of numbers and performs the operation
+  return function (...values) {
     switch (operation) {
       case Operation.Add:
-        return a + b;
+        return values.reduce((a, b) => a + b, 0);
       case Operation.Subtract:
-        return a - b;
+        return values.reduce((a, b) => a - b, 0);
       case Operation.Multiply:
-        return a * b;
+        return values.reduce((a, b) => a * b, 1);
       case Operation.Divide:
-        return a / b;
+        return values.reduce((a, b) => a / b, 1);
       default:
         throw new Error(`Invalid operation: ${operation}`);
     }

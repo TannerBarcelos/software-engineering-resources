@@ -5,6 +5,6 @@ enum Operation {
   Divide = "divide",
 }
 
-type Calculator = (a: number, b: number) => number;
+type Calculator = (..._: Array<number>) => number;
 
 export {Operation, Calculator};
