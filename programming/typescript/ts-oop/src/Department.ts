@@ -1,5 +1,8 @@
+import type {Employee} from "./lib/definitions";
+
 class Department {
   private deptName: string;
+  private employees: Array<Employee> = [];
 
   constructor(name: string) {
     this.deptName = name;
@@ -16,6 +19,17 @@ class Department {
 
   set updateName(value: string) {
     this.deptName = value;
+  }
+
+  addEmployee(employee: Employee) {
+    this.employees.push(employee);
+  }
+
+  printEmployeeInformation() {
+    console.log(
+      `There are ${this.employees.length} employees in the ${this.deptName} department`
+    );
+    console.log(JSON.stringify(this.employees, null, 2));
   }
 }
 
