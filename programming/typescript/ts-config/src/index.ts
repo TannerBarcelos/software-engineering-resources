@@ -1,4 +1,4 @@
-import CalculatorFactory from "./factory";
+import CalculatorFactory from "./calculator";
 import {Operation} from "./lib/definitions";
 
 const add = CalculatorFactory(Operation.Add);
