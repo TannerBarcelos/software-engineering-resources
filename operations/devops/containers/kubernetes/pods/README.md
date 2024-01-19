@@ -59,6 +59,11 @@ spec:
 | Deployment | `apps/v1`      |
 |            |                |
 
+- the `metadata` property holds metadata information about the pod you are creating as a yaml object. Common values are
+  - `name` : this is the pod name. You will see the pod name when running something like `kubectl get pods`
+  - `labels` : this is a sub-object that contains labels (tags / identifiable information) that are used as further values which Kubernetes can use to filter, group, select etc.
+    - There are some common labels, but a label can be any `key`:`value`
+
 **Nginx pod configuration**
 
 `nginx.yaml`
@@ -108,7 +113,9 @@ spec:
 
 > If using VSCode, a lot of features are enabled for syntax highlighting, auto-complete and completion, hints etc. if you enable the Yaml and Kubernetes extensions
 
-## what about pods that need more configuration for their container?
+### what about pods that need more configuration for their container?
+
+i.e environment variables, ports, volumes etc. These are all added in the container configuration section of the pod yaml file.
 
 Postgres is a good example, see snippet below
 
