@@ -23,4 +23,4 @@ spec:
     matchLabels:
       app: my-app
   # Replica count
-  replicas: 50
+  replicas: 10
