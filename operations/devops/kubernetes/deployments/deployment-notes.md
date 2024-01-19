@@ -4,7 +4,7 @@
 - When creating a deployment, you define the desired number of replicas, the container image to use, and any additional configurations or resources required. Kubernetes then takes care of automatically creating and managing the pods based on these specifications. If a pod goes down or a node fails, Kubernetes will automatically create new pods to maintain the desired state.
 - Deployments also support rolling updates, which allow for seamless updates of the application without any downtime. By gradually replacing old pods with new ones, rolling updates ensure that the application remains available during the update process. This feature is essential in production environments where a continuous delivery pipeline is in place.
 
-> > So again, like replica sets contain pod-specs we can copy/paste, Deployments contain `ReplicaSet` specs which we can also copy/paste. This is an easy way to remember the syntax!
+> So again, like replica sets contain pod-specs we can copy/paste, Deployments contain `ReplicaSet` specs which we can also copy/paste. This is an easy way to remember the syntax!
 
 Let's take a look at a Deployment manifest
 
@@ -37,11 +37,11 @@ spec:
 
 Apply this file `kubectl apply -f deployment.yaml` and then check the pods `kubectl get pods` or run other commands from reference below
 
-> > It looks just like a `ReplicaSet` only that the `kind` changed. This is true!
+> It looks just like a `ReplicaSet` only that the `kind` changed. This is true!
 
-> > Deployments allow for full replication features but also managing rolling updates
+> Deployments allow for full replication features but also managing rolling updates
 
-> > The `spec` field on the yaml is the exact same as the `spec` of a `ReplicaSet` . That's a way to remember the syntax
+> The `spec` field on the yaml is the exact same as the `spec` of a `ReplicaSet` . That's a way to remember the syntax
 
 ## Updates / Rollouts and Rollbacks
 
@@ -63,7 +63,7 @@ Apply this file `kubectl apply -f deployment.yaml` and then check the pods `kube
 
 ## Deployment command reference
 
-> > All file names will match the filename of the code block earlier in this doc `deployment.yaml`
+> All file names will match the filename of the code block earlier in this doc `deployment.yaml`
 
 | Command                                                           | Explanatio                                                                                                                                                     |
 | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
