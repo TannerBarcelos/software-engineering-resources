@@ -10,9 +10,11 @@ spec:
   containers:
     - name: postgres
       image: postgres
+      # The env section defines environment variables that should be set in the container. For postgres, the Docker image requires the POSTGRES_PASSWORD environment variable to be set at the minimum. See the Docker Hub page for the postgres image for more information.
       env:
         - name: POSTGRES_PASSWORD
           value: 'postgres'
+      # The ports section defines the ports that should be exposed on the container. For postgres, the default port is 5432.
       ports:
         - containerPort: 5432
           name: postgres
