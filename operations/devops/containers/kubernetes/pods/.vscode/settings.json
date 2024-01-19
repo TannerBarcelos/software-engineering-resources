@@ -1,0 +1,6 @@
+{
+  "yaml.schemas": {
+    "kubernetes": ["*.yaml", "*.yml"],
+    "kubernetes://schema/v1@pod": "file:///Users/tannerbarcelos/Developer/resources/operations/devops/containers/kubernetes/pods/nginx.yaml"
+  }
+}
