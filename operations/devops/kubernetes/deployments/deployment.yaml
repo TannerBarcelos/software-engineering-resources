@@ -11,12 +11,14 @@ spec:
     metadata:
       name: nginx
       labels:
-        app: my-app
+        app: nginx-webserver
     spec:
       containers:
         - name: nginx
           image: nginx:1.7.1
+          ports:
+            - containerPort: 80 # Nginx is listening on port 80 (see docs on Docker if you are unsure)
   selector:
     matchLabels:
-      app: my-app
+      app: nginx-webserver
   replicas: 5
