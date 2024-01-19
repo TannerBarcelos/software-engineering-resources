@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-replica-set
+spec:
+  # Pod template for an NGINX pod (same as in pods/nginx.yaml file) without apiVersion and kind as we know
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+  # Selector
+  selector:
+    # Match labels with the labels in the pod template - will match all pods with label app: my-app,
+    # but kubectl get pods will not show the pod name, but the replica set name as a pod name
+    # i.e my-replica-set (which is the name of the replica set in this file metadata property)
+    matchLabels:
+      app: my-app
+  # Replica count
+  replicas: 50

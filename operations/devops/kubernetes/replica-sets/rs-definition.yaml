@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+# metadata rules are the same as pods and other k8s objects
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: front-end
+spec:
+  # pod template - this is simply the pod definition to create pods - this matches the pod definition yaml if we create a pod as a standalone object
+  # notice it matches 1:1 with pod-spec-reference.yaml minus the apiVersion and kind since that is implied
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: nginx-pod
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+  replicas: 3
+  # pods are created before the replicaset, so the selector is used to match the pods to the replicaset label
+  selector:
+    # MATCHES THE LABELS IN THE POD TEMPLATE, NOT THE REPLICASET METADATA LABELS
+    matchLabels:
+      type: nginx-pod
