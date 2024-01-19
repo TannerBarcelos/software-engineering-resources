@@ -1,0 +1,22 @@
+# apiVersion is the version of the kubernetes API that we are going to use that correlates to the object that we are going to create
+apiVersion: v1
+
+# Kind is a type of object in kubernetes
+kind: Pod
+
+# Metadata for the pod - This is a dictionary of key value pairs where name, labels etc are keys and their values are the values which are also dictionaries
+metadata:
+  # Name of the pod
+  name: myapp-pod
+  # Labels are used to identify the pod from other pods or objects
+  labels:
+    app: myapp
+
+# Spec is the specification of the pod where we define the containers that we want to run in the pod, the image that we want to use, the ports that we want to expose etc
+spec:
+  # Containers is a list of containers that we want to run in the pod
+  containers:
+    # Array entry - Dictionary
+    - name: nginx-container
+      # Image that we want to use for the container
+      image: nginx
