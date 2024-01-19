@@ -16,7 +16,7 @@
   - If you are running a single-node cluster i.e Minikube, it will ensure that the pod(s) are concisely running and always ensuring the desired state of every pod running matches the current state, and if not, it will work to remediate it
 - The replication controller spans across all the nodes in a cluster and enables load balancing of pods across all the nodes
 
-> > **Replication controllers are considered an older term and now, replication management is done by replica sets, therefore, we will stick to Replica Set terminilogy going forward**
+> **Replication controllers are considered an older term and now, replication management is done by replica sets, therefore, we will stick to Replica Set terminilogy going forward**
 
 ### Replication Set _(controller)_ configuration syntax
 
@@ -97,7 +97,7 @@ To see the pods, run the following:
 
 `kubectl get pods`
 
-> > `k get pods` is equivalent to `kubectl get pods` . I simply created an alias on my mac using `export alias k=kubectl`
+> `k get pods` is equivalent to `kubectl get pods` . I simply created an alias on my mac using `export alias k=kubectl`
 
 ![Image.png](https://res.craft.do/user/full/23a94566-d418-41a0-9075-ac543852aabd/doc/AA2F829E-5B76-4C78-A730-8238DDE9578D/8B3BE368-AA35-4570-935C-245266F82451_2/cKkK9pRhSVyhKn1sPDTFgN4HJyBxorFAlcFqnYEb3PIz/Image.png)
 
@@ -152,7 +152,7 @@ So cool!
 
 > All file names will match the filename of the code block earlier in this doc `rs-definiton.yaml`
 
-| Command                                                                 | Explanatio                                                                                                                                                     |
+| Command                                                                 | Explanation                                                                                                                                                    |
 | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `kubectl create -f [file].yaml`                                         | Creates a replicaset                                                                                                                                           |
 | `kubectl delete replicaset [replicaset_name_from_metadata]`             | Deletes a replicaset, and subsequently every pod                                                                                                               |

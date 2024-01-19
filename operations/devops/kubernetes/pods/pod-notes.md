@@ -14,7 +14,7 @@
 
 ### How to create a pod
 
-> > Ensure you have a running Kubernetes cluster (can run one quickly using Docker Desktop)
+> Ensure you have a running Kubernetes cluster (can run one quickly using Docker Desktop)
 
 > For this example, we will run a simple Nginx server. It is important to know that **we won't typically run pods from the cli, but instead use a Yaml manifest file to deploy pods** but it is important to know about pods and how to create them from scratch
 

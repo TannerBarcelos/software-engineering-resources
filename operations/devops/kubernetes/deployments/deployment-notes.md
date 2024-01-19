@@ -65,7 +65,7 @@ Apply this file `kubectl apply -f deployment.yaml` and then check the pods `kube
 
 > All file names will match the filename of the code block earlier in this doc `deployment.yaml`
 
-| Command                                                           | Explanatio                                                                                                                                                     |
+| Command                                                           | Explanation                                                                                                                                                    |
 | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `kubectl create -f [file].yaml`                                   | Creates a deployment (`kubectl create` is a generic CLI command)                                                                                               |
 | `kubectl delete deployment [deployment_name_from_metadata]`       | Deletes a deployment, and subsequently every pod and replicaset                                                                                                |
