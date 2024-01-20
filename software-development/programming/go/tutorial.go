@@ -1,4 +1,6 @@
-// Run this file with the command: go run tutorial.go
+// Run this file with the command: go run tutorial.go (this compiles and runs the program)
+// To compile the program use the command: go build tutorial.go (this only compiles the program) and generates a executable file
+// To run the executable file use the command: ./tutorial (this runs the executable file)
 package main
 
 import "fmt"
