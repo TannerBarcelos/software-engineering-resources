@@ -1,26 +1,22 @@
 <!-- Bind this form to the formGroup reference and also add form submit directive (just like event directives and ngModel direcives for data binding) -->
 <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="checkinDate">Check In Date:</label>
-    <input type="date" formControlName="checkinDate" id="checkinDate" />
-    <label for="checkoutDate">Check Out Date:</label>
-    <input type="date" formControlName="checkoutDate" id="checkoutDate" />
+    <label for="checkinDateInput">Check In Date:</label>
+    <input type="date" formControlName="checkinDate" id="checkinDateInput" />
+    <label for="checkoutDateInput">Check Out Date:</label>
+    <input type="date" formControlName="checkoutDate" id="checkoutDateInput" />
   </div>
   <div>
-    <label for="guestName">Guest Name:</label>
-    <input type="text" formControlName="guestName" id="guestName" />
+    <label for="guestNameInput">Guest Name:</label>
+    <input type="text" formControlName="guestName" id="guestNameInput" />
   </div>
   <div>
-    <label for="guestEmail">Guest Email:</label>
-    <input type="email" formControlName="guestEmail" id="guestEmail" />
+    <label for="guestEmailInput">Guest Email:</label>
+    <input type="email" formControlName="guestEmail" id="guestEmailInput" />
   </div>
   <div>
-    <label for="guestPhone">Guest Phone:</label>
-    <input type="tel" formControlName="guestPhone" id="guestPhone" />
-  </div>
-  <div>
-    <label for="roomNumber">Room Number:</label>
-    <input type="number" formControlName="roomNumber" id="roomNumber" />
+    <label for="roomNumberInput">Room Number:</label>
+    <input type="number" formControlName="roomNumber" id="roomNumberInput" />
   </div>
   <button type="submit">Reserve</button>
 </form>
