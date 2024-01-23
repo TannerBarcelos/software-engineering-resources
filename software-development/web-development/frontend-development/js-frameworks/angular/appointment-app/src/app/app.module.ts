@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 
@@ -9,7 +9,7 @@ import { AppointmentListComponent } from './appointment-list/appointment-list.co
 // As we know, components can also have child components, so this same Module pattern can be used in any component that has child components
 @NgModule({
   declarations: [AppComponent, AppointmentListComponent], // declare the components that are used in this module
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule], // imports these modules into every component in this module
   providers: [],
   bootstrap: [AppComponent],
 })

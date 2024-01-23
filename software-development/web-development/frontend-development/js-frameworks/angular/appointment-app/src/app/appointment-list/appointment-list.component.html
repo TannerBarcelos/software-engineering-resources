@@ -1,1 +1,22 @@
-<p>{{ title }} works!</p>
+<div class="input-area">
+  <!-- 2 way data binding (binding input to a variable [like state]) 
+    Need to add FormsModule to app.module.ts to enable this feature
+-->
+  <input
+    [(ngModel)]="newAptTitle"
+    type="text"
+    placeholder="Appointment Description"
+    minlength="4"
+    required
+  />
+  <input [(ngModel)]="newAptDate" type="date" placeholder="Date" required />
+  <button (click)="addAppointment()">Add</button>
+</div>
+
+<ul>
+  <!-- *ngFor is a directive that loops through an array and renders each item -->
+  <li *ngFor="let appointment of appointments">
+    <!-- appointment.date is being piped into a formatter -->
+    {{ appointment.title }} - {{ appointment.date | date : "shortDate" }}
+  </li>
+</ul>
