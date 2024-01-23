@@ -17,7 +17,7 @@ export class AppointmentListComponent implements OnInit {
   newAptTitle: string = '';
   newAptDesc: string = '';
   newAptDate: Date = new Date();
-  appointments: Appointment[] = [];
+  appointments: Appointment[] = []; // ng g interface models/appointment
 
   addAppointment(): void {
     const newAppt = {
