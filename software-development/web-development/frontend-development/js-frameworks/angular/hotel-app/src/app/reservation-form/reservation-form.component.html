@@ -3,20 +3,38 @@
   <div>
     <label for="checkinDateInput">Check In Date:</label>
     <input type="date" formControlName="checkinDate" id="checkinDateInput" />
+    <div *ngIf="isInvalidInput('checkinDate')">
+      <span>Checkin date is required</span>
+    </div>
+  </div>
+  <div>
     <label for="checkoutDateInput">Check Out Date:</label>
     <input type="date" formControlName="checkoutDate" id="checkoutDateInput" />
+    <div *ngIf="isInvalidInput('checkoutDate')">
+      <span>Checkout date is required</span>
+    </div>
   </div>
   <div>
     <label for="guestNameInput">Guest Name:</label>
     <input type="text" formControlName="guestName" id="guestNameInput" />
+    <div *ngIf="isInvalidInput('guestName')">
+      <span>Guest name is required</span>
+    </div>
   </div>
   <div>
     <label for="guestEmailInput">Guest Email:</label>
     <input type="email" formControlName="guestEmail" id="guestEmailInput" />
+    <div *ngIf="isInvalidInput('guestEmail')">
+      <span>Guest email is required</span>
+    </div>
   </div>
   <div>
     <label for="roomNumberInput">Room Number:</label>
     <input type="number" formControlName="roomNumber" id="roomNumberInput" />
+    <div *ngIf="isInvalidInput('roomNumber')">
+      <span>Room number is required</span>
+    </div>
   </div>
-  <button type="submit">Reserve</button>
+  <!-- Disables the button so long as the reservationForm is invalid -->
+  <button type="submit" [disabled]="reservationForm.invalid">Reserve</button>
 </form>

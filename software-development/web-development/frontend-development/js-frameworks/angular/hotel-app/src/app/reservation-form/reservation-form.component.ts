@@ -8,7 +8,7 @@ import { OnInit } from '@angular/core';
   styleUrls: ['./reservation-form.component.css'],
 })
 export class ReservationFormComponent implements OnInit {
-  reservationForm: FormGroup = new FormGroup({});
+  reservationForm: FormGroup = new FormGroup({}); // This is the form group that will be used in the template.
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -31,5 +31,12 @@ export class ReservationFormComponent implements OnInit {
       checkinDate: ['', Validators.required],
       checkoutDate: ['', Validators.required],
     });
+  }
+
+  isInvalidInput(fieldName: string) {
+    return (
+      this.reservationForm.get(fieldName)?.invalid &&
+      this.reservationForm.get(fieldName)?.touched
+    );
   }
 }
