@@ -1,22 +1,78 @@
-<div class="input-area">
-  <!-- 2 way data binding (binding input to a variable [like state]) 
+<div class="container">
+  <div class="card mt-3">
+    <div class="row">
+      <div class="col">
+        <h2 class="text-center">Create new Appointment</h2>
+      </div>
+    </div>
+    <div class="row mt-3 m-4">
+      <div class="col-md-4">
+        <!-- 2 way data binding (binding input to a variable [like state]) 
     Need to add FormsModule to app.module.ts to enable this feature
 -->
-  <input
-    [(ngModel)]="newAptTitle"
-    type="text"
-    placeholder="Appointment Description"
-    minlength="4"
-    required
-  />
-  <input [(ngModel)]="newAptDate" type="date" placeholder="Date" required />
-  <button (click)="addAppointment()">Add</button>
+        <input
+          [(ngModel)]="newAptTitle"
+          type="text"
+          placeholder="Appointment Name"
+          minlength="4"
+          required
+          class="form-control"
+        />
+      </div>
+      <div class="col-md-4">
+        <input
+          [(ngModel)]="newAptDesc"
+          type="text"
+          placeholder="Appointment Description"
+          minlength="4"
+          required
+          class="form-control"
+        />
+      </div>
+      <div class="col-md-3">
+        <input
+          [(ngModel)]="newAptDate"
+          type="date"
+          placeholder="Date"
+          required
+          class="form-control"
+        />
+      </div>
+      <div class="col-md-1">
+        <!-- This is how we do event handlers -->
+        <button (click)="addAppointment()" class="btn btn-primary w-100">
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- How to use the if directive for dynamic rendering -->
+  <h2 *ngIf="appointments.length == 0" class="text-center mt-5">
+    No Appointments
+  </h2>
+  <h2 *ngIf="appointments.length != 0" class="text-center mt-5">
+    Appointments
+  </h2>
+  <ul class="list-group mt-3">
+    <!-- *ngFor is a directive that loops through an array and renders each item -->
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+      *ngFor="let appointment of appointments; index as idx"
+    >
+      <div class="card-body">
+        <h5 class="card-title">{{ appointment.title }}</h5>
+        <p class="card-text">{{ appointment.description }}</p>
+        <p class="card-text">
+          {{ appointment.date | date : "shortDate" }}
+        </p>
+      </div>
+      <!-- appointment.date is being piped into a formatter -->
+      <button
+        class="btn btn-danger"
+        (click)="deleteAppointment(appointment.id)"
+      >
+        Remove
+      </button>
+    </li>
+  </ul>
 </div>
-
-<ul>
-  <!-- *ngFor is a directive that loops through an array and renders each item -->
-  <li *ngFor="let appointment of appointments">
-    <!-- appointment.date is being piped into a formatter -->
-    {{ appointment.title }} - {{ appointment.date | date : "shortDate" }}
-  </li>
-</ul>
