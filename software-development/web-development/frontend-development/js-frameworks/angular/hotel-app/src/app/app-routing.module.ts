@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 
+// Sets up route mappings for each "page" in the app
+// Ensure you add each module to the imports array in src/app/app.module.ts
 const routes: Routes = [
   {
     path: '',
