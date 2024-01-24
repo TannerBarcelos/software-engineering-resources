@@ -1,0 +1,6 @@
+{
+  "yaml.schemas": {
+    "kubernetes": ["*.yaml", "*.yml"],
+    "https://json.schemastore.org/yamllint.json": "file:///Users/tannerbarcelos/Developer/resources/containerization/helm/firstchart/values.yaml"
+  }
+}
