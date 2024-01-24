@@ -1,20 +1,47 @@
 <app-home></app-home>
+<hr />
 
-<h2>Reservations</h2>
+<h3 class="mt-5 mb-4">Reservations</h3>
 
-<ul *ngIf="reservations.length; else noReservationsExist">
-  <li *ngFor="let reservation of reservations">
-    Guest: {{ reservation.guestName }}<br />
-    Room: {{ reservation.roomNumber }}<br />
-    From: {{ reservation.checkinDate }}<br />
-    To: {{ reservation.checkoutDate }}<br />
-    <button (click)="onDeleteReservation(reservation.id)">
-      Cancel Reservation
-    </button>
-    <!-- remember, to get bindings for routerLink, we need to import RouterModule into the module where this component, ReservationList in this case, is imported -->
-    <button [routerLink]="['/edit', reservation.id]">Edit Reservation</button>
-  </li>
-</ul>
+<table
+  class="table table-striped table-bordered"
+  *ngIf="reservations.length; else noReservationsExist"
+>
+  <thead>
+    <tr>
+      <th>Guest</th>
+      <th>Email</th>
+      <th>Room</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Modify Your Trip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reservation of reservations">
+      <td>{{ reservation.guestName }}</td>
+      <td>{{ reservation.guestEmail }}</td>
+      <td>{{ reservation.roomNumber }}</td>
+      <td>{{ reservation.checkinDate }}</td>
+      <td>{{ reservation.checkoutDate }}</td>
+      <td>
+        <button
+          class="btn btn-sm btn-danger"
+          (click)="onDeleteReservation(reservation.id)"
+        >
+          Cancel
+        </button>
+        <!-- remember, to get bindings for routerLink, we need to import RouterModule into the module where this component, ReservationList in this case, is imported -->
+        <button
+          class="btn btn-sm btn-secondary mx-1"
+          [routerLink]="['/edit', reservation.id]"
+        >
+          Update
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- This needs to be activated, and it only renders when there are no reservations -->
 <ng-template #noReservationsExist>
