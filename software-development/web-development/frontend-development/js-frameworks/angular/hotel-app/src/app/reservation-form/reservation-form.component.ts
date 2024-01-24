@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OnInit } from '@angular/core';
 import { ReservationService } from '../reservation/reservation.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reservation-form',
@@ -11,25 +12,44 @@ import { ReservationService } from '../reservation/reservation.service';
 export class ReservationFormComponent implements OnInit {
   reservationForm: FormGroup = new FormGroup({}); // This is the form group that will be used in the template.
 
-  // This is the constructor for the component. It is where we inject the form builder and the reservation service.
-  // Dependency injection is a design pattern that allows us to inject dependencies into a class instead of having
-  // the class create the dependencies itself. This allows us to easily swap out the dependencies for other
+  // Inject the form builder, reservation service, and router into the component using dependency injection.
   constructor(
     private formBuilder: FormBuilder,
-    private reservationService: ReservationService
+    private reservationService: ReservationService,
+    private router: Router,
+    private ac: ActivatedRoute
   ) {}
 
+  // useEffect() in React but ALWAYS runs when the component is initialized and never again.
   ngOnInit(): void {
-    this.initializeForm();
+    this.initForm();
+    const res = this.extractReservationIfExists();
+    if (res) {
+      this.reservationForm.patchValue(res);
+    }
   }
 
   onSubmit() {
     if (this.reservationForm.valid) {
-      this.reservationService.createReservation(this.reservationForm.value);
+      const reservation = this.reservationForm.value;
+      const existingReservation = this.extractReservationIfExists();
+      if (existingReservation) {
+        const updatedReservation = {
+          id: existingReservation.id,
+          ...reservation,
+        };
+        this.reservationService.updateReservation(
+          existingReservation.id,
+          updatedReservation
+        );
+      } else {
+        this.reservationService.createReservation(this.reservationForm.value);
+      }
     }
+    this.router.navigate(['/list']);
   }
 
-  initializeForm() {
+  initForm() {
     // This sets up the form builder with the fields we want to use in the form and applies reactive validation to them.
     this.reservationForm = this.formBuilder.group({
       guestName: ['', Validators.required],
@@ -45,5 +65,16 @@ export class ReservationFormComponent implements OnInit {
       this.reservationForm.get(fieldName)?.invalid &&
       this.reservationForm.get(fieldName)?.touched
     );
+  }
+
+  extractReservationIfExists() {
+    let reservationIfIfExists = this.ac.snapshot.paramMap.get('id');
+    if (reservationIfIfExists) {
+      let reservation = this.reservationService.getReservationById(
+        reservationIfIfExists
+      );
+      return reservation;
+    }
+    return null;
   }
 }

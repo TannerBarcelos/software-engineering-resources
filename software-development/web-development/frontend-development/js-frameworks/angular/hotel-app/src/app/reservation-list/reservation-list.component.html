@@ -1,1 +1,24 @@
-<p>Reservation List Page</p>
+<h2>Reservations</h2>
+
+<ul *ngIf="reservations.length; else noReservationsExist">
+  <li *ngFor="let reservation of reservations">
+    Guest: {{ reservation.guestName }}<br />
+    Room: {{ reservation.roomNumber }}<br />
+    From: {{ reservation.checkinDate }}<br />
+    To: {{ reservation.checkoutDate }}<br />
+    <button (click)="onDeleteReservation(reservation.id)">
+      Cancel Reservation
+    </button>
+    <!-- remember, to get bindings for routerLink, we need to import RouterModule into the module where this component, ReservationList in this case, is imported -->
+    <button [routerLink]="['/edit', reservation.id]">Edit Reservation</button>
+  </li>
+</ul>
+
+<!-- This needs to be activated, and it only renders when there are no reservations -->
+<ng-template #noReservationsExist>
+  <p>No reservations found</p>
+</ng-template>
+<!-- This is called a template-reference. It can be coupled to a ngIf
+to be referenced in a condition such that it will be rendered, or not, based 
+on the condition.
+-->

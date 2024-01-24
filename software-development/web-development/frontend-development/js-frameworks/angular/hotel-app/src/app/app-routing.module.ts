@@ -5,7 +5,7 @@ import { ReservationFormComponent } from './reservation-form/reservation-form.co
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 
 // Sets up route mappings for each "page" in the app
-// Ensure you add each module to the imports array in src/app/app.module.ts
+// Ensure you add each module for these components to the imports array in src/app/app.module.ts
 const routes: Routes = [
   {
     path: '',
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'list',
     component: ReservationListComponent, // Component (page) to render when hitting /list
+  },
+  {
+    path: 'edit/:id',
+    component: ReservationFormComponent, // Component (page) to render when hitting /edit
   },
 ];
 

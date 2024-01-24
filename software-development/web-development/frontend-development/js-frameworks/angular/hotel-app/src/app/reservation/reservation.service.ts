@@ -21,11 +21,18 @@ import { Reservation } from '../models/reservation';
  * just storing the reservations in local storage for now.
  */
 export class ReservationService {
-  private reservations: Reservation[] =
-    JSON.parse(localStorage.getItem('reservations')!) || [];
+  private reservations: Reservation[] = [];
+
+  constructor() {
+    this.reservations = JSON.parse(localStorage.getItem('reservations')!) || [];
+  }
 
   createReservation(reservation: Reservation) {
-    this.reservations.push(reservation);
+    const newReservation = {
+      ...reservation,
+      id: Date.now().toString(),
+    };
+    this.reservations.push(newReservation);
     localStorage.setItem('reservations', JSON.stringify(this.reservations));
   }
 
