@@ -1,8 +1,10 @@
 package main
 
 import (
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 type Deck []string
@@ -16,26 +18,18 @@ func (d Deck) print() {
 
 // Generates a fresh deck of cards to play with
 func newDeck() Deck {
-	deck := Deck{}
-	suits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
-	values := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Jack", "Queen", "King"}
-
-	for _, suit := range suits {
-		for _, value := range values {
-			deck = append(deck, value+" of "+suit)
-		}
-	}
-	return deck
+	return newDeckFromFile("deck.txt")
 }
 
 // Go supports multiple-return values!
 func deal(d Deck, handSize int) (Deck, Deck) {
 	return d[:handSize], d[handSize:]
+	// gives us a slice of the deck from 0 to handSize (not inclusive)
+	// and a slice of the deck from handSize to the end (the remaining cards the "dealer" can deal)
 }
 
-func (d Deck) toString() []byte {
-	deckStr := strings.Join(d, ",") // join the slice of strings into a single string
-	return []byte(deckStr)          // convert the string to a byte slice for easier file writing
+func (d Deck) toString() string {
+	return strings.Join(d, ",") // join the slice of strings into a single string
 }
 
 type DeckByteSlice []byte
@@ -51,6 +45,15 @@ func newDeckFromFile(filename string) Deck {
 		println("Error:", err)
 		os.Exit(1)
 	}
-	deckStr := string(data)
-	return strings.Split(deckStr, ",")
+	return strings.Split(string(data), ",")
+}
+
+func (d Deck) shuffle() {
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
+	for i := range d {
+		newPosition := r.Intn(len(d) - 1)
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
 }
