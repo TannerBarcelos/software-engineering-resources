@@ -16,7 +16,19 @@ func (d Deck) print() {
 }
 
 func newDeck() Deck {
-	return newDeckFromFile("deck.txt")
+	cards := Deck{}
+
+	// Slice of strings for suits and values
+	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
+	cardValues := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"}
+
+	for _, suit := range cardSuits {
+		for _, value := range cardValues {
+			cards = append(cards, value+" of "+suit)
+		}
+	}
+
+	return cards
 }
 
 func deal(d Deck, handSize int) (Deck, Deck) {
@@ -28,7 +40,7 @@ func (d Deck) toString() string {
 }
 
 func (d Deck) saveToFile(filename string) error {
-	data := []byte(d.toString())
+	data := []byte(d.toString()) // Convert string slice of cards to string and then to byte slice for writing to file
 	return os.WriteFile(filename, data, 0666)
 }
 
