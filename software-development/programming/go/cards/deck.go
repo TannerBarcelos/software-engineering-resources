@@ -19,7 +19,6 @@ func newDeck() Deck {
 	return newDeckFromFile("deck.txt")
 }
 
-// Go supports multiple-return values!
 func deal(d Deck, handSize int) (Deck, Deck) {
 	return d[:handSize], d[handSize:]
 }
@@ -28,10 +27,8 @@ func (d Deck) toString() string {
 	return strings.Join(d, ",")
 }
 
-type DeckByteSlice []byte
-
 func (d Deck) saveToFile(filename string) error {
-	data := DeckByteSlice(d.toString())
+	data := []byte(d.toString())
 	return os.WriteFile(filename, data, 0666)
 }
 
