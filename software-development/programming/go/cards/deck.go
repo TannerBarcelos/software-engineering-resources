@@ -22,3 +22,8 @@ func newDeck() Deck {
 	}
 	return deck
 }
+
+// Go supports multiple-return values!
+func deal(d Deck, handSize int) (Deck, Deck) {
+	return d[:handSize], d[handSize:]
+}
