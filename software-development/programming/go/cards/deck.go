@@ -9,14 +9,12 @@ import (
 
 type Deck []string
 
-// Shows all cards in the deck
 func (d Deck) print() {
 	for _, card := range d {
 		println(card)
 	}
 }
 
-// Generates a fresh deck of cards to play with
 func newDeck() Deck {
 	return newDeckFromFile("deck.txt")
 }
@@ -24,12 +22,10 @@ func newDeck() Deck {
 // Go supports multiple-return values!
 func deal(d Deck, handSize int) (Deck, Deck) {
 	return d[:handSize], d[handSize:]
-	// gives us a slice of the deck from 0 to handSize (not inclusive)
-	// and a slice of the deck from handSize to the end (the remaining cards the "dealer" can deal)
 }
 
 func (d Deck) toString() string {
-	return strings.Join(d, ",") // join the slice of strings into a single string
+	return strings.Join(d, ",")
 }
 
 type DeckByteSlice []byte
