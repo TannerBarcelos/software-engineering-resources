@@ -19,11 +19,13 @@ func main() {
 	fmt.Printf("%+v\n", Willow) // %+v prints the field names along with the values
 
 	// Shorter way to create a new Animal struct - order of fields must match the order in the struct definition as Go uses positional arguments
+	// This is not recommended as it can lead to confusion
 	Max := Animal{"Max", 5, "Brown"}
 	fmt.Println(Max)
 	fmt.Printf("%+v\n", Max)
 
 	// We can also create a struct and assign values to fields in one go
+	// This is useful when we want to create a struct and use it immediately without having to assign it to a variable, but it can be confusing
 	willow := struct {
 		Name  string
 		Age   int
