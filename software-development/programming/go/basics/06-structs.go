@@ -93,9 +93,13 @@ func main() {
 	user1.describe()
 	user2.describe()
 
-	// Update the name of the user
+	// Update the name of the user - best way
 	user1.updateName("Tanner Smith")
 	user1.updateAge(30)
+
+	// Update the name of the user - second way to call the method (more verbose)
+	updatedUser2 := &user2
+	updatedUser2.updateName("John Smith")
 
 	user1.describe()
 }
