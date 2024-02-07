@@ -18,7 +18,7 @@ func main() {
 	}
 	fmt.Printf("%+v\n", Willow) // %+v prints the field names along with the values
 
-	// Shorter way to create a new Animal struct
+	// Shorter way to create a new Animal struct - order of fields must match the order in the struct definition as Go uses positional arguments
 	Max := Animal{"Max", 5, "Brown"}
 	fmt.Println(Max)
 	fmt.Printf("%+v\n", Max)
