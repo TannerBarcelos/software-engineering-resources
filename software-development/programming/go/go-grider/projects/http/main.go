@@ -42,3 +42,14 @@ func (LogWriter) Write(bs []byte) (int, error) {
 	fmt.Println("Just wrote this many bytes:", len(bs))
 	return len(bs), nil
 }
+
+/*
+The Writer interface is defined as follows:
+type Writer interface {
+	Write(p []byte) (n int, err error)
+}
+
+The Write method takes in a byte slice and returns an int and an error
+
+Therefore, any function that takes in a byte slice and returns an int and an error can be used as the dst of the io.Copy method because it satisfies the Writer interface
+*/
