@@ -9,12 +9,13 @@ import (
 )
 
 func main() {
-	utils.LoadEnv()
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
+
+	server := utils.CreateServer()
+
+	server.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",
 		})
 	})
-	r.Run(os.Getenv("PORT"))
+	server.Run(os.Getenv("PORT"))
 }
