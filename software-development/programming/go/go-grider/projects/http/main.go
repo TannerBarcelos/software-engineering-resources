@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	url := "https://www.tannerbarcelos.com"
+	url := "https://jsonplaceholder.typicode.com/todos"
 	resp, err := http.Get(url)
 
 	if err != nil {
