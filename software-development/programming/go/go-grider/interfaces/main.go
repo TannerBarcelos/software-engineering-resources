@@ -16,15 +16,15 @@ type SpanishBot struct {
 }
 
 func main() {
-	en := EnglishBot{
+	eBot := EnglishBot{
 		BotName: "EnglishBot",
 	}
-	sp := SpanishBot{
+	sBot := SpanishBot{
 		BotName: "SpanishBot",
 	}
 
-	printGreeting(en) // en is of type EnglishBot, which implements the Bot interface because it has the getGreeting method, therefore it is also of type Bot and can be passed to the printGreeting function
-	printGreeting(sp)
+	printGreeting(eBot) // eBot is of type EnglishBot, which implements the Bot interface because it has the getGreeting method, therefore it is also of type Bot and can be passed to the printGreeting function
+	printGreeting(sBot)
 }
 
 func printGreeting(b Bot) {
