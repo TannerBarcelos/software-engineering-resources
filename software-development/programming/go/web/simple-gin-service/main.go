@@ -5,8 +5,14 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/tannerbarcelos/simple-gin-service/db"
 	"github.com/tannerbarcelos/simple-gin-service/utils"
 )
+
+func init() {
+	utils.LoadEnv()
+	db.ConnectDB()
+}
 
 func main() {
 
