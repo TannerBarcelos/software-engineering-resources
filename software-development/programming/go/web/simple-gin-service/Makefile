@@ -26,4 +26,4 @@ test:
 
 clean: 
 	$(GOCLEAN)
-	rm -f $(BINARY_NAME)
+	rm -f $(OUT_DIR)/$(BINARY_NAME)
