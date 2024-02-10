@@ -18,7 +18,8 @@ all: test build
 run:
 	$(GORUN) $(ENTRY_POINT_PATH)main.go
 
-build: 
+build:
+	mkdir -p $(OUT_DIR)
 	$(GOBUILD) -o $(OUT_DIR)/$(BINARY_NAME) -v $(ENTRY_POINT_PATH)
 
 test: 
