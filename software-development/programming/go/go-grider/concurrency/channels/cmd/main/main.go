@@ -32,14 +32,14 @@ func main() {
 
 	// We can range over channels to read from them
 	for link := range c {
-		go checkLink(link, c) // infinite loop
-		// fmt.Println(link)
+		go func(link string) {
+			time.Sleep(5 * time.Second) // sleep for 5 seconds
+			checkLink(link, c)
+		}(link)
 	}
 }
 
 func checkLink(link string, c chan string) {
-	time.Sleep(5 * time.Second) // sleep for 5 seconds
-
 	_, err := http.Get(link)
 
 	if err != nil {
