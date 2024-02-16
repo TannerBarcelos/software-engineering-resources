@@ -31,11 +31,11 @@ func main() {
 	// fmt.Println(<-c) // we had 4 links but we are trying to read from the channel 5 times, this will cause the main go routine to block indefinitely. So, we know channels are bound by a size, and we can only read from them as many times as they have values. We can fix this by using a for loop to read from the channel as many times as there are links
 
 	// We can range over channels to read from them
-	for link := range c {
+	for l := range c {
 		go func(link string) {
 			time.Sleep(5 * time.Second) // sleep for 5 seconds
 			checkLink(link, c)
-		}(link)
+		}(l)
 	}
 }
 
