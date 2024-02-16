@@ -17,7 +17,7 @@ func main() {
 	}
 
 	for _, link := range links {
-		checkLink(link)
+		go checkLink(link) // "go" keyword creates a new go routine (A go routine is a lightweight thread of execution that is spawned by the main go routine and runs concurrently with the main go routine)
 	}
 }
 
