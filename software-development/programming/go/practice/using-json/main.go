@@ -15,7 +15,7 @@ type Todo struct {
 }
 
 func main() {
-	url := "https://jsonplaceholder.typicode.com/todos/1"
+	url := "https://jsonplaceholder.typicode.com/todos/2"
 
 	response, err := http.Get(url)
 
@@ -45,6 +45,6 @@ func main() {
 		log.Fatalf("Error: %s", err)
 	}
 
-	log.Printf("Todo: %+v", body)
+	log.Printf("Todo: %+v", body) // learn more about the %+v verb here: https://golang.org/pkg/fmt/
 
 }
