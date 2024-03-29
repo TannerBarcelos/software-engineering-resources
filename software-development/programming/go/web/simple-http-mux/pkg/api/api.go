@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/tannerbarcelos/mux/pkg/handlers"
+	"github.com/tannerbarcelos/mux/pkg/middleware"
 )
 
 type APIServer struct {
@@ -26,9 +27,11 @@ func (s *APIServer) Start() error {
 
 	registerRoutes(router)
 
+	providedMiddleware := middleware.ApplyMiddleware(middleware.RequestLoggerMiddleware)
+
 	server := http.Server{
 		Addr:    s.addr,
-		Handler: router,
+		Handler: providedMiddleware(router),
 	}
 
 	log.Printf("starting server on port %s", strings.TrimPrefix(s.addr, ":"))
