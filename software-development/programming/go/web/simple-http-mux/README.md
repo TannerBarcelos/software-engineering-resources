@@ -1,7 +1,5 @@
 ![Go](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/2560px-Go_Logo_Blue.svg.png)
 
-![docker](https://blog.codewithdan.com/wp-content/uploads/2023/06/Docker-Logo.png)
-
 ## Introduction
 
 This is a simple REST API using the latest Go 1.22 http server and mux router. It showcases how we can build a REST service without needing to reach for a framework.
