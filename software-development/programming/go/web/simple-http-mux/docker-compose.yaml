@@ -1,0 +1,10 @@
+version: '3.1'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile # optional, the default is Dockerfile but being explicit is nice
+    ports:
+      - '9143:9143'
+    environment:
+      - PORT=9143
