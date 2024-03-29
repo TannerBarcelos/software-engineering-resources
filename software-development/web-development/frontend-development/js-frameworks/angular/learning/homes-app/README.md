@@ -1,7 +1,8 @@
 # Angular Homes App
+
 - Install Angular if you don't have it installed
 
-  `npm install -g @angular/cli`
+  `yarn global add @angular/cli`
 
 - Clone this branch to your local machine
 
@@ -13,8 +14,8 @@
 
 - Install the depencies
 
-  `npm install` 
+  `yarn install`
 
-- Run the application 
+- Run the application with `json-server` to have a mock backend
 
-  `ng serve`
+  `yarn start:all`
