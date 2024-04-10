@@ -4,14 +4,14 @@ type TSpinner = {
     loading: boolean
 }
 
-const override = {
+const cssOverrides = {
     display: 'block',
     margin: '100px auto',
 }
 
 function Spinner({ loading }: TSpinner) {
     return (
-        <DotLoader color="#2563EB" loading={ loading } size={ 50 } cssOverride={ override } />
+        <DotLoader color="#2563EB" loading={ loading } size={ 50 } cssOverride={ cssOverrides } />
     )
 }
 export default Spinner
