@@ -1,19 +1,8 @@
-import Herobar from './components/Hero'
-import Navbar from './components/Nav'
-import HomeCards from './components/HomeCards'
-import RecentJobListings from './components/JobListings'
-import ViewAllJobs from './components/ViewAllJobs'
+import { RouterProvider } from 'react-router-dom'
+import { createRouter } from './routes'
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <Herobar />
-      <HomeCards />
-      <RecentJobListings />
-      <ViewAllJobs />
-    </>
-  )
+  return <RouterProvider router={ createRouter() } />
 }
 
 export default App

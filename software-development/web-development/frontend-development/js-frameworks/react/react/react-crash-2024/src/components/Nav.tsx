@@ -1,4 +1,14 @@
+import { NavLink } from 'react-router-dom' // use NavLink instead of Link so we can get the active class when the link is active, so we can have a different style for the active link
 import logo from '../assets/react.svg'
+
+// Function to determine the active link - passed to the className prop of the NavLink component to gain access to the isActive prop - this API is similar in TanStack Router
+function isActiveLink(isActive: boolean) {
+    if (isActive) {
+        return 'text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
+    } else {
+        return 'text-white  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
+    }
+}
 
 function Nav() {
     return (
@@ -8,7 +18,7 @@ function Nav() {
                     <div
                         className="flex flex-1 items-center justify-center md:items-stretch md:justify-start"
                     >
-                        <a className="flex flex-shrink-0 items-center mr-4" href="/index.html">
+                        <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
                             <img
                                 className="h-10 w-auto"
                                 src={ logo }
@@ -17,24 +27,26 @@ function Nav() {
                             <span className="hidden md:block text-white text-2xl font-bold ml-2"
                             >React Jobs</span
                             >
-                        </a>
+                        </NavLink>
                         <div className="md:ml-auto">
                             <div className="flex space-x-2">
-                                <a
-                                    href="/index.html"
-                                    className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                                >Home</a
+                                <NavLink
+                                    to="/"
+                                    className={ (navLinkProps) => `${isActiveLink(navLinkProps.isActive)}` }
                                 >
-                                <a
-                                    href="/jobs.html"
-                                    className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                                >Jobs</a
+                                    Home
+                                </NavLink>
+                                <NavLink
+                                    to="/jobs"
+                                    className={ (navLinkProps) => isActiveLink(navLinkProps.isActive) }
                                 >
-                                <a
-                                    href="/add-job.html"
-                                    className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                                >Add Job</a
-                                >
+                                    Jobs
+                                </NavLink>
+                                <NavLink
+                                    to="/add-job"
+                                    className={ (navLinkProps) => isActiveLink(navLinkProps.isActive) }
+                                >Add Job
+                                </NavLink>
                             </div>
                         </div>
                     </div>
