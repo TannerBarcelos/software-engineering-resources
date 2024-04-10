@@ -3,6 +3,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from 'react-rout
 import HomePage from './pages/HomePage'
 import RootLayout from './layouts/RootLayout'
 import JobsPage from './pages/JobsPage'
+import JobPage, { jobLoader } from './pages/JobPage'
 import NotFound from './pages/404'
 
 /* index property: In react-router-dom, the index prop in a Route component is used to specify the default route that should be rendered when the parent route's path matches EXACTLY.  */
@@ -10,6 +11,7 @@ const routes = [
     <Route path="/" element={ <RootLayout /> }>
         <Route index element={ <HomePage /> } />,                           {/* This route will render the HomePage component when the path matches / EXACTLY */ }
         <Route path="jobs" element={ <JobsPage /> } />,                     {/* This route will render the JobsPage component when the path matches /jobs */ }
+        <Route path="jobs/:jobId" loader={ jobLoader } element={ <JobPage /> } />,    {/* This route will render a div with the text Job Details when the path matches /jobs/:jobId */ }
         <Route path="add-job" element={ <div>Add Job</div> } />,            {/* This route will render a div with the text Add Job when the path matches /add-job */ }
         <Route path="*" element={ <NotFound /> } />,                        {/* This route will render the NotFound component when the path does not match any of the routes above */ }
     </Route>,

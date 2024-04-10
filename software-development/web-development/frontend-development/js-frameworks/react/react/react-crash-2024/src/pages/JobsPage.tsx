@@ -1,9 +1,7 @@
 import JobListings from '../components/JobListings'
 
 function JobsPage() {
-    return (
-        <JobListings />
-    )
+    return <JobListings />
 }
 
 export default JobsPage
