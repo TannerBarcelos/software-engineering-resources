@@ -98,3 +98,23 @@ FROM
 	orders
 WHERE
 	shipped_date IS NULL;
+
+
+# LIMIT clause: used to limit the result set to a select range defined by an offset
+# This comes in handy when you need pagination or doing things like "find the top 5 movies, find the bottom 3 contestants in the race, etc."
+
+# In this case, we provide 1 value to limit, so we start at offset 0 and limit the range to 5, so we select 5 customers
+SELECT
+	*
+FROM
+	customers
+LIMIT 5;
+
+# What if we want to select the top 3 most loyal customers? hint: loyalty is defined by point value
+SELECT
+	*
+FROM
+	customers
+ORDER BY
+	points DESC
+LIMIT 3;
