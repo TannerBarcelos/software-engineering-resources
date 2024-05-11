@@ -81,4 +81,20 @@ SELECT
 FROM
 	customers
 WHERE
-	last_name LIKE 'b%'; # 'b%' says find all last_name with b as first char and % to catchall any other chars 
+	# 'b%' says find all last_name with b as first char and % to catchall any other chars
+	last_name LIKE 'b%'; 
+	
+# This is similar to REGEXP keyword but REGEXP contains more power
+
+# This query gets all customers with a last name starting with (^ symbol) the letter b or starting with the letters D through F
+SELECT * FROM customers WHERE last_name REGEXP '^b|^[d-f]';
+
+
+# Using the IS NULL operator to select records that contain a NULL column
+# Select all orders that have not shipped
+SELECT
+	*
+FROM
+	orders
+WHERE
+	shipped_date IS NULL;
