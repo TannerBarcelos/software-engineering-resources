@@ -27,7 +27,8 @@ SELECT
 FROM
 	customers
 WHERE
-	points > 2000;
+	points > 2000
+	OR points BETWEEN 2100 AND 4500;
 
 # Get all the orders after the year 1990
 SELECT
@@ -46,4 +47,38 @@ FROM
 WHERE
 	birth_date > '1990-01-01'
 	OR points > 1000
-	AND state = 'CA'
+	AND state = 'CA';
+
+# From the order_items table, get the items for order # 6 where the total price is greater than 30
+SELECT
+	*
+FROM
+	order_items
+WHERE
+	order_id = 6
+	AND(unit_price * quantity) > 30;
+
+# IN operator: used to select a range of values in a column that can exist i.e. state in CA, FLA, OR, etc.
+SELECT
+	*
+FROM
+	customers
+WHERE
+	state IN('CA', 'FL', 'OR');
+
+# Return all the products with quantity in stock = to 49, 38, 72
+SELECT
+	*
+FROM
+	products
+WHERE
+	quantity_in_stock IN(49, 38, 72);
+
+
+# LIKE operator: Used to match a filter by some expression (regex) i.e. get all users that have a last name starting with the letter b
+SELECT
+	*
+FROM
+	customers
+WHERE
+	last_name LIKE 'b%'; # 'b%' says find all last_name with b as first char and % to catchall any other chars 
