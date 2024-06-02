@@ -1,7 +1,9 @@
 package vehicles
 
+import "github.com/tannerbarcelos/composition/lib"
+
 type F1Car struct {
-	SteeringWheel
-	Engine
-	Transmission
+	lib.SteeringWheel
+	lib.Engine
+	lib.Transmission
 }

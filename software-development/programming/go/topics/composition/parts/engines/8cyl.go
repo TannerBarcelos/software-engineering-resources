@@ -9,3 +9,7 @@ func (v V8engine) Start() {
 func (v V8engine) Stop() {
 	println("V8 engine is stopping")
 }
+
+func (v V8engine) Rev() {
+	println("V8 engine is revving")
+}

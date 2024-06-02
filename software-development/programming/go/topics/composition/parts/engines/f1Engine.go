@@ -9,3 +9,7 @@ func (f F1Engine) Start() {
 func (f F1Engine) Stop() {
 	println("F1 engine is stopping")
 }
+
+func (f F1Engine) EnableKers() {
+	println("KERS is enabled")
+}

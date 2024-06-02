@@ -6,14 +6,10 @@ import (
 	"github.com/tannerbarcelos/composition/lib"
 )
 
-type SteeringWheel = lib.SteeringWheel
-type Engine = lib.Engine
-type Transmission = lib.Transmission
-
 type Truck struct {
-	SteeringWheel
-	Engine
-	Transmission
+	lib.SteeringWheel
+	lib.Engine
+	lib.Transmission
 }
 
 func (t Truck) TurnOn4wd() {

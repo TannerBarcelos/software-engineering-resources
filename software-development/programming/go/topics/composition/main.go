@@ -30,7 +30,9 @@ func main() {
 	truck := vehicles.Truck{
 		SteeringWheel: steeringwheels.SteeringWheel{},
 		Engine:        engines.V8engine{},
-		Transmission:  transmissions.EightSpeedTransmission{},
+		Transmission: &transmissions.EightSpeedTransmission{ // this transmission has many methods, but it also has the methods to satisfy the Transmission interface which is required by of a Truck
+			CurrentGear: 1,
+		},
 	}
 
 	convertable := vehicles.Convertable{
@@ -42,7 +44,7 @@ func main() {
 	f1Car := vehicles.F1Car{
 		SteeringWheel: steeringwheels.DisabledWheel{},
 		Engine:        engines.F1Engine{},
-		Transmission:  transmissions.EightSpeedTransmission{},
+		Transmission:  &transmissions.EightSpeedTransmission{},
 	}
 
 	vehicles := lib.CarList{truck, convertable, f1Car}
@@ -50,5 +52,7 @@ func main() {
 	turnOnVehicles(vehicles...)
 	turnOffVehicles(vehicles...)
 	honkVehicles(vehicles...)
+
+	f1Car.ShiftUp()
 
 }

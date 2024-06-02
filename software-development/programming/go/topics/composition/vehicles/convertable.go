@@ -2,12 +2,14 @@ package vehicles
 
 import (
 	"fmt"
+
+	"github.com/tannerbarcelos/composition/lib"
 )
 
 type Convertable struct {
-	SteeringWheel
-	Engine
-	Transmission
+	lib.SteeringWheel
+	lib.Engine
+	lib.Transmission
 }
 
 func (c Convertable) LowerRoof() {
