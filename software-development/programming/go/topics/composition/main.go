@@ -55,7 +55,7 @@ func main() {
 
 	truck.ShiftUp()
 
-	// GetCurrentGear is not a direct function on itself, but it comes from the embedded transmission we composed the truck with.
+	// GetCurrentGear is not a direct function on truck itself, but it comes from the embedded transmission we composed the truck with.
 	// Think of it like a real car: the transmission is installed into the car and has the ability to shift, as well as provide feedback back to the car, what
 	// gear it is currently in. The truck simply displays that information, but the transmission is the one that actually has the logic to determine what gear it is in, and how to shift up or down.
 	// The reason we can access that method on the truck itself is because the truck is composed of the transmission, and the transmission has the GetCurrentGear method which is embedded into the truck, i.e. installed on the truck.
