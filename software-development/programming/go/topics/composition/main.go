@@ -1,28 +1,54 @@
 package main
 
-type Vehicle interface {
-	Start()
-}
+import (
+	"github.com/tannerbarcelos/composition/lib"
+	"github.com/tannerbarcelos/composition/parts/engines"
+	"github.com/tannerbarcelos/composition/parts/steeringwheels"
+	"github.com/tannerbarcelos/composition/parts/transmissions"
+	"github.com/tannerbarcelos/composition/vehicles"
+)
 
-func turnOnVehicles(v ...Vehicle) {
+func turnOnVehicles(v ...lib.Vehicle) {
 	for _, vehicle := range v {
 		vehicle.Start()
 	}
 }
 
+func turnOffVehicles(v ...lib.Vehicle) {
+	for _, vehicle := range v {
+		vehicle.Stop()
+	}
+}
+
+func honkVehicles(v ...lib.Vehicle) {
+	for _, vehicle := range v {
+		vehicle.Honk()
+	}
+}
+
 func main() {
-	truck := Truck{
-		SteeringWheel: SteeringWheel{},
-		Engine:        Engine{},
-		Transmission:  Transmission{},
+	truck := vehicles.Truck{
+		SteeringWheel: steeringwheels.SteeringWheel{},
+		Engine:        engines.V8engine{},
+		Transmission:  transmissions.EightSpeedTransmission{},
 	}
 
-	convertable := Convertable{
-		SteeringWheel: SteeringWheel{},
-		Engine:        Engine{},
-		Transmission:  Transmission{},
+	convertable := vehicles.Convertable{
+		SteeringWheel: steeringwheels.SteeringWheel{},
+		Engine:        engines.Engine{},
+		Transmission:  transmissions.Transmission{},
 	}
 
-	turnOnVehicles(truck, convertable)
+	f1Car := vehicles.F1Car{
+		SteeringWheel: steeringwheels.DisabledWheel{},
+		Engine:        engines.F1Engine{},
+		Transmission:  transmissions.EightSpeedTransmission{},
+	}
+
+	vehicles := lib.CarList{truck, convertable, f1Car}
+
+	turnOnVehicles(vehicles...)
+	turnOffVehicles(vehicles...)
+	honkVehicles(vehicles...)
 
 }

@@ -1,6 +1,8 @@
-package main
+package vehicles
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Convertable struct {
 	SteeringWheel

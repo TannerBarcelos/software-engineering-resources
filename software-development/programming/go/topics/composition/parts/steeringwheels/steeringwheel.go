@@ -1,4 +1,4 @@
-package main
+package steeringwheels
 
 import "fmt"
 
@@ -10,4 +10,8 @@ func (sw SteeringWheel) TurnLeft() {
 
 func (sw SteeringWheel) TurnRight() {
 	fmt.Println("Steering wheel is turning right")
+}
+
+func (sw SteeringWheel) Honk() {
+	fmt.Println("Steering wheel is honking")
 }
