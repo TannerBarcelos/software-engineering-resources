@@ -13,18 +13,23 @@ Therefore, it must have the ShiftUp and ShiftDown methods, and then it can have 
 */
 
 type EightSpeedTransmission struct {
-	CurrentGear int
+	gear int
 }
 
 func (t *EightSpeedTransmission) ShiftUp() {
+	t.gear++
 	println("Shifting up in 8-speed transmission")
-	t.CurrentGear++
 }
 
 func (t *EightSpeedTransmission) ShiftDown() {
-	println("Shifting down in 8-speed transmission")
+	if t.gear > 0 {
+		t.gear--
+		println("Shifting down in 8-speed transmission")
+	} else {
+		println("Shift column is stuck. Cannot shift down past 1st gear.")
+	}
 }
 
 func (t *EightSpeedTransmission) GetCurrentGear() int {
-	return t.CurrentGear
+	return t.gear
 }

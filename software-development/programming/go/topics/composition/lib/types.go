@@ -13,6 +13,7 @@ So we are using composition with interfaces to define the components of the car,
 type Transmission interface {
 	ShiftUp()
 	ShiftDown()
+	GetCurrentGear() int
 }
 
 type SteeringWheel interface {
@@ -33,5 +34,3 @@ type Vehicle interface {
 	SteeringWheel
 	Transmission
 }
-
-type CarList []Vehicle
