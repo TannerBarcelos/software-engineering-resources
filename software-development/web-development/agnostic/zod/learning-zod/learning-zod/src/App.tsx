@@ -47,8 +47,8 @@ console.log(userSchema.safeParse(user2)); // { success: true, data: { firstName:
 
 function App() {
   return (
-    <div>
-      <h1>Learning Zod</h1>
+    <div className="bg-green-50 p-4">
+      <h1 className="text-3xl font-bold">Learning Zod</h1>
       <FormExample />
     </div>
   );
