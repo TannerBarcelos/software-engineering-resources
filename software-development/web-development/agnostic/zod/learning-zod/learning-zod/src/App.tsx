@@ -1,5 +1,6 @@
 import "./App.css";
 import { z } from "zod";
+import FormExample from "./form-example";
 
 // Zod is a TypeScript-first schema declaration and validation library. It is designed to be as simple as possible, and to be as easy to use as possible.
 // We define a schema using the z object, and then we can use the parse method to validate the object against the schema.
@@ -45,7 +46,12 @@ const user2: User = {
 console.log(userSchema.safeParse(user2)); // { success: true, data: { firstName: 'Tanner', lastName: 'Barcelos' } }
 
 function App() {
-  return <h1>Learning Zod!</h1>;
+  return (
+    <div>
+      <h1>Learning Zod</h1>
+      <FormExample />
+    </div>
+  );
 }
 
 export default App;
