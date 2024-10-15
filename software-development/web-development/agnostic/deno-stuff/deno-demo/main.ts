@@ -1,8 +1,12 @@
-export function add(a: number, b: number): number {
-  return a + b;
+import { parse }  from "https://deno.land/std@0.224.0/flags/mod.ts";
+
+export function sumNums(...numbers: number[]): number {
+  return numbers.reduce((acc, num) => acc + num, 0);
 }
 
 // Learn more at https://docs.deno.com/runtime/manual/examples/module_metadata#concepts
 if (import.meta.main) {
-  console.log("Add 2 + 3 =", add(2, 3));
+  const numbers = parse(Deno.args)._
+  const sum = sumNums(...numbers.map(n => Number(n)));
+  console.log(sum)
 }
